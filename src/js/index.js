@@ -10,24 +10,22 @@ const switchTheme = document.querySelector('#theme-switch-toggle');
 const body = document.body;
 
 if (localStorage.getItem('theme') === Theme.DARK) {
-    switchTheme.checked = true;
-	changeTheme({target: {checked: true}});
-}
-else {
-    switchTheme.checked = false;
-	changeTheme({target: {checked: false}});
+  switchTheme.checked = true;
+  changeTheme({ target: { checked: true } });
+} else {
+  switchTheme.checked = false;
+  changeTheme({ target: { checked: false } });
 }
 
 switchTheme.addEventListener('change', changeTheme);
 function changeTheme(evt) {
-    if (evt.target.checked) {
-        localStorage.setItem('theme', Theme.DARK);
-        body.classList.remove(...body.classList);
-        body.classList.add(localStorage.getItem('theme'));
-    }
-    else {
-        localStorage.setItem('theme', Theme.LIGHT);
-        body.classList.remove(...body.classList);
-        body.classList.add(Theme.LIGHT);
-    }
+  if (evt.target.checked) {
+    localStorage.setItem('theme', Theme.DARK);
+    body.classList.remove(...body.classList);
+    body.classList.add(localStorage.getItem('theme'));
+  } else {
+    localStorage.setItem('theme', Theme.LIGHT);
+    body.classList.remove(...body.classList);
+    body.classList.add(Theme.LIGHT);
+  }
 }
